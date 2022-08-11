@@ -1,3 +1,13 @@
+const app = {
+  init: () => {
+    document
+      .getElementById('btnGet')
+      .addEventListener('click', app.fetchWeather);
+    document
+      .getElementById('btnCurrent')
+      .addEventListener('click', app.getLocation);
+  }}
+
 //Declare variables for API
 var lat = document.getElementById('latitude'); 
 var lon = document.getElementById('longitude');
@@ -19,4 +29,4 @@ fetch(url)
       })
 
 
-    
+
