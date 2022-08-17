@@ -1,35 +1,17 @@
-// const app = {
-//   init: () => {
-//     document
-//       .getElementById('btnGet')
-//       .addEventListener('click', app.fetchWeather);
-//     document
-//       .getElementById('btnCurrent')
-//       .addEventListener('click', app.getLocation);
-//   }}
-
-//Declare variables for API
-// var lat = document.getElementById('latitude'); 
-// var lon = document.getElementById('longitude');
-// var lang = 'en';
-// var units ='metric';
-// var search = document.getElementById('search').value;
 var fetchButton = document.getElementById('fetch-button');
 
-
 function getApi() {
+  //Declare variables for API
   var key = 'dd9f750d866c7ea7294e978112f158c0';
   var requestUrl = `http://api.openweathermap.org/data/2.5/onecall?`;
   var geourl = `http://api.openweathermap.org/geo/1.0/direct?`;
-
-  var lat = document.getElementById('latitude');
-  var lon = document.getElementById('longitude');
+  var Wurl = `https://api.openweathermap.org/data/2.5/weather?`;
   var lang = 'en';
   var units = 'metric';
   var search = document.getElementById('search').value;
   console.log(document.getElementById('search').value);
-  var url = `${geourl}q=${search}&appid=${key}`;
-  fetch(url)
+  var Gurl = `${geourl}q=${search}&appid=${key}`;
+  fetch(Gurl)
     .then(function (resp) {
       console.log(resp);
       return resp.json();
@@ -39,5 +21,19 @@ function getApi() {
 
     })
 
+
+
+  var lat = `${[data.lat], lat}`;
+  var lon = `$0, lon]`;
+
+  var rurl = `${Wurl}lat=${lat}&lon=${lon}&appid=${key}`;
+  fetch(rurl)
+    .then(function (resp) {
+      console.log(resp);
+      return resp.json();
+    })
+
 }
+
+
 fetchButton.addEventListener('click', getApi);
