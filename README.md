@@ -26,3 +26,4 @@ https://snipboard.io/ZW28Kw.jpg
 assets\Coding Quiz.gif
 
 
+find object 0 and loc 
