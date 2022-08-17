@@ -11,6 +11,11 @@ function getApi() {
   var search = document.getElementById('search').value;
   console.log(document.getElementById('search').value);
   var Gurl = `${geourl}q=${search}&appid=${key}`;
+
+
+
+  let theCountry, theLat, theLon, theName, theState = [];
+
   fetch(Gurl)
     .then(function (resp) {
       console.log(resp);
@@ -18,19 +23,22 @@ function getApi() {
     })
     .then(function (data) {
       console.log(data);
+      theState = data.state;
+      theName = data.name;
+      theLon = data.lon;
+      theLat = data.lat;
+      theCountry = data.country;
+    });
 
-    })
 
-
-
-  var lat = `${[data.lat], lat}`;
-  var lon = `$0, lon]`;
-
-  var rurl = `${Wurl}lat=${lat}&lon=${lon}&appid=${key}`;
-  fetch(rurl)
+  var Wurl = `${Wurl}q=${search}&appid=${key}`;
+  fetch(Wurl)
     .then(function (resp) {
       console.log(resp);
       return resp.json();
+    })
+    .then(function (data) {
+      console.log(data);
     })
 
 }
