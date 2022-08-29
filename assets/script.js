@@ -26,6 +26,7 @@ function getApi() {
   var Wurl = `https://api.openweathermap.org/data/2.5/weather?`;
   var lang = 'en';
   var units = 'metric';
+  //search text and function
   var search = document.getElementById('search').value;
   console.log(document.getElementById('search').value);
   //timeframe
@@ -68,7 +69,7 @@ function getApi() {
       Geoloc();
     })
 
-
+  //WeatherApi call
   var Wurl = `${Wurl}q=${search}&appid=${key}`;
   fetch(Wurl)
     .then(function (resp) {
@@ -76,7 +77,8 @@ function getApi() {
       return resp.json();
     })
     .then(function (data) {
-      console.log(data);
+      var dataw = data;
+      console.log(dataw);
     })
     .catch(err => console.error(err));
 }
