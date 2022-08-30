@@ -38,24 +38,8 @@ function getApi() {
   localStorage.setItem(search, d);
 
 
-  //set your location
-  // var x = document.getElementById("yourlocation");
-
-  // function getLocation() {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(showPosition);
-  //   } else {
-  //     x.innerHTML = "Geolocation is not supported by this browser.";
-  //   }
-  // }
-
-  // function showPosition(position) {
-  //   x.innerHTML = "Latitude: " + position.coords.latitude +
-  //     "<br>Longitude: " + position.coords.longitude;
-  // }
-  // onclick = getLocation();
-  // console.log(getLocation());
-  {
+  //set your location from real nlocation
+  (() => {
     const message = document.querySelector('#message');
 
     // check if the Geolocation API is supported
@@ -89,8 +73,8 @@ function getApi() {
       message.classList.add('error');
       message.textContent = `Failed to get your location!`;
     }
-    console.log(position);
-  };
+
+  })();
   //Geocoding API call
   var Gurl = `${geourl}q=${search}&appid=${key}`;
 
