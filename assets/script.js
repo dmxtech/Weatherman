@@ -6,7 +6,43 @@ const currentTemp = document.getElementById('currenttemp');
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const country = document.getElementById('country');
+(() => {
+  const message = document.querySelector('#message');
 
+  // check if the Geolocation API is supported
+  if (!navigator.geolocation) {
+    message.textContent = `Your browser doesn't support Geolocation`;
+    message.classList.add('error');
+    return;
+  }
+
+  // handle click event
+  const btn = document.querySelector('#show');
+  btn.addEventListener('click', function () {
+    // get the current position
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+  });
+
+
+  // handle success case
+  function onSuccess(position) {
+    const {
+      latitude,
+      longitude
+    } = position.coords;
+
+    message.classList.add('success');
+    message.textContent = `Your location: (${latitude},${longitude})`;
+    localStorage.setItem(position, d);
+  }
+
+  // handle error case
+  function onError() {
+    message.classList.add('error');
+    message.textContent = `Failed to get your location!`;
+  }
+
+})();
 //Getting searched city from local storage
 var city1 = localStorage.key(0);
 document.getElementById("city1").innerHTML = city1
@@ -39,57 +75,10 @@ function getApi() {
   //search text and function
   var search = document.getElementById('search').value;
   console.log(document.getElementById('search').value);
-  //timeframe
-  var d = new Date();
-  let day = d.getDay();
-  document.getElementById("date").innerHTML = d;
-  console.log(d);
-  //set search items on local storage
-  localStorage.setItem(search, d);
 
-
-  //set your location from real location
-  (() => {
-    const message = document.querySelector('#message');
-
-    // check if the Geolocation API is supported
-    if (!navigator.geolocation) {
-      message.textContent = `Your browser doesn't support Geolocation`;
-      message.classList.add('error');
-      return;
-    }
-
-    // handle click event
-    const btn = document.querySelector('#show');
-    btn.addEventListener('click', function () {
-      // get the current position
-      navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    });
-
-
-    // handle success case
-    function onSuccess(position) {
-      const {
-        latitude,
-        longitude
-      } = position.coords;
-
-      message.classList.add('success');
-      message.textContent = `Your location: (${latitude},${longitude})`;
-    }
-
-    // handle error case
-    function onError() {
-      message.classList.add('error');
-      message.textContent = `Failed to get your location!`;
-    }
-
-  })();
   //Geocoding API call
   var Gurl = `${geourl}q=${search}&appid=${key}`;
-
   let theCountry, theLat, theLon, theName, theState = [], Mainloc = {};
-
   let Geoloc = function () {
     for (let prop in Mainloc) {
       console.log(prop);
@@ -124,63 +113,76 @@ function getApi() {
       var dataw = data;
       console.log(dataw);
     })
+
     .catch(err => console.error(err));
 }
+//set search items on local storage
+localStorage.setItem(search, d);
+//set your location from real location
+
+
+//timeframe
+var d = new Date();
+let date = d.getDay();
+document.getElementById("date").innerHTML = d;
+console.log(d);
+
+
 //show weather data
-function showWeatherData(data) {
-  let { temperature, humidity, pressure, UV_index, wind_speed } = data.current;
+//   function showWeatherData(dataw) {
+//     let { temperature, humidity, pressure, UV_index, wind_speed } = dataw.current;
 
-  timezone.innerHTML = data.timezone;
-  countryEl.innerHTML = data.lat + 'N ' + data.lon + 'E'
+//     // timezone.innerHTML = dataw.timezone;
+//     // country.innerHTML = dataw.lat + 'N ' + dataw.lon + 'E'
 
-  currentWeatherItemsEl.innerHTML =
-    ` <div class="weather">
-    <div>Temperature</div>
-    <div>${temperature}</div>
-</div>
-    <div class="weather">
-      <div>Humidity</div>
-      <div>${humidity}%</div>
-  </div>
- 
-  <div class="weather">
-      <div>Wind Speed</div>
-      <div>${wind_speed}</div>
-  </div>
-  <div class="weather">
-      <div>UV index</div>
-      <div>${UV_index}</div>
-  </div>
-  `;
-  let otherDayForcast = ''
-  data.daily.forEach((day, idx) => {
-    if (idx == 0) {
-      currentTemp.innerHTML = `
-            <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather-icon" class="wicon">
-            <div class="other">
-                <div class="day">${window.moment(day.dt * 1000).format('dddd')}</div>
-                <div class="temp">Night - ${day.temp.night}&#176;C</div>
-                <div class="temp">Day - ${day.temp.day}&#176;C</div>
-            </div>
-            
-            `
-    } else {
-      otherDayForcast += `
-            <div class="5dayforecast-item">
-                <div class="day">${window.moment(day.dt * 1000).format('ddd')}</div>
-                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather-icon" class="wicon">
-                <div class="temp">Night - ${day.temp.night}&#176;C</div>
-                <div class="temp">Day - ${day.temp.day}&#176;C</div>
-            </div>
-            
-            `
-    }
-  })
+//     currentweather.innerHTML =
+//       ` <div class="weather">
+//     <div>Temperature</div>
+//     <div>${temperature}</div>
+// </div>
+//     <div class="weather">
+//       <div>Humidity</div>
+//       <div>${humidity}%</div>
+//   </div>
 
-  weather.innerHTML = otherDayForcast;
+//   <div class="weather">
+//       <div>Wind Speed</div>
+//       <div>${wind_speed}</div>
+//   </div>
+//   <div class="weather">
+//       <div>UV index</div>
+//       <div>${UV_index}</div>
+//   </div> `;
+
+//     let otherDayForcast = ''
+//     data.daily.forEach((day, idx) => {
+//       if (idx == 0) {
+//         currentTemp.innerHTML = `
+//             <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather-icon" class="wicon">
+//             <div class="other">
+//                 <div class="day">${window.moment(day.dt * 1000).format('dddd')}</div>
+//                 <div class="temp">Night - ${day.temp.night}&#176;C</div>
+//                 <div class="temp">Day - ${day.temp.day}&#176;C</div>
+//             </div>
+
+//             `
+//       } else {
+//         otherDayForcast += `
+//             <div class="5dayforecast-item">
+//                 <div class="day">${window.moment(day.dt * 1000).format('ddd')}</div>
+//                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather-icon" class="wicon">
+//                 <div class="temp">Night - ${day.temp.night}&#176;C</div>
+//                 <div class="temp">Day - ${day.temp.day}&#176;C</div>
+//             </div>
+
+//             `
+//       }
+//     })
+//   }
+//   weather.innerHTML = otherDayForcast;
 
 
-  locButton.addEventListener('click', getApi);
-  fetchButton.addEventListener('click', getApi);
+//   locButton.addEventListener('click', showWeatherData);
+fetchButton.addEventListener('click', getApi);
 
-}
+
