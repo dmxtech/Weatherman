@@ -1,0 +1,57 @@
+/* Style the header */
+.header {
+    background-color: #3b888e;
+    padding: 10px;
+    text-align: center;
+    font-size: 35px;
+}
+
+/* Container for flexboxes */
+.row {
+    display: flex;
+    text-align: center;
+    background-color: #9ebabc;
+    padding: 10px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.btn {
+
+    text-align: center;
+    width: 20%;
+    padding: 10px;
+    background: #406583;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+/* Create three equal columns that sits next to each other */
+.LGH {
+    flex: 1;
+    padding: 30px;
+    height: 300px;
+    background-color: #4b7c7f;
+    padding: 10px;
+    text-align: left;
+    font-size: 20px;
+    /* Should be removed. Only for demonstration */
+}
+
+/* Style the footer */
+.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .row {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+}

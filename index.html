@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="stylesheet" type="text/css" href=".\assets\style.css" />
   <title>Weatherman</title>
 </head>
 
@@ -13,46 +13,29 @@
   <header id="header" class="header">
     <h1>Weather Dashboard</h1>
   </header>
-  <div id="date"></div>
+  <div class="row" id="date"></div>
   <aside>
-    <h2>Search for a city:</h2>
+    <h2 class="row">Search for a city:</h2>
     <form id="form">
-      <input type="text" placeholder="Mexico city" id="search" class="search">
+      <input type="text" placeholder="Mexico city" id="search" class="row">
     </form>
-    <div><button type="button" id="fetch-button">Search</button>
+    <div><button class="btn" id="fetch-button">Search</button>
       <h2>or use </h2>
 
-      <button onclick="getLocation()">Your location</button>
+      <button class="btn" id="show">Your location</button>
+      <div id="message"></div>
 
-      <p id="yourlocation"></p>
-
-      <script>
-        var x = document.getElementById("yourlocation");
-
-        function getLocation() {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-          } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-          }
-        }
-
-        function showPosition(position) {
-          x.innerHTML = "Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude;
-        }
-      </script>
     </div>
     <ul class="LGH" id="cities">
       Mostfamous cities
-      <div id="city1"> </div>
-      <div id="city2"> </div>
-      <div id="city3"> </div>
-      <div id="city4"> </div>
-      <div id="city5"> </div>
-      <div id="city6"> </div>
-      <div id="city7"> </div>
-      <div id="city8"> </div>
+      <button id="city1"> </button>
+      <button id="city2"> </button>
+      <button id="city3"> </button>
+      <button id="city4"> </button>
+      <button id="city5"> </button>
+      <button id="city6"> </button>
+      <button id="city7"> </button>
+      <button id="city8"> </button>
     </ul>
   </aside>
   <main id="main">

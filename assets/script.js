@@ -38,9 +38,59 @@ function getApi() {
   localStorage.setItem(search, d);
 
 
+  //set your location
+  // var x = document.getElementById("yourlocation");
+
+  // function getLocation() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(showPosition);
+  //   } else {
+  //     x.innerHTML = "Geolocation is not supported by this browser.";
+  //   }
+  // }
+
+  // function showPosition(position) {
+  //   x.innerHTML = "Latitude: " + position.coords.latitude +
+  //     "<br>Longitude: " + position.coords.longitude;
+  // }
+  // onclick = getLocation();
+  // console.log(getLocation());
+  {
+    const message = document.querySelector('#message');
+
+    // check if the Geolocation API is supported
+    if (!navigator.geolocation) {
+      message.textContent = `Your browser doesn't support Geolocation`;
+      message.classList.add('error');
+      return;
+    }
+
+    // handle click event
+    const btn = document.querySelector('#show');
+    btn.addEventListener('click', function () {
+      // get the current position
+      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    });
 
 
+    // handle success case
+    function onSuccess(position) {
+      const {
+        latitude,
+        longitude
+      } = position.coords;
 
+      message.classList.add('success');
+      message.textContent = `Your location: (${latitude},${longitude})`;
+    }
+
+    // handle error case
+    function onError() {
+      message.classList.add('error');
+      message.textContent = `Failed to get your location!`;
+    }
+    console.log(position);
+  };
   //Geocoding API call
   var Gurl = `${geourl}q=${search}&appid=${key}`;
 
