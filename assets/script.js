@@ -1,11 +1,6 @@
 var fetchButton = document.getElementById('fetch-button');
 var locButton = document.getElementById('show');
-const currentWeather = document.getElementById('currentweather');
-const weather = document.getElementById('weather');
-const currentTemp = document.getElementById('currenttemp');
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const country = document.getElementById('country');
+
 (() => {
   const message = document.querySelector('#message');
 
@@ -81,18 +76,18 @@ function getApi() {
   let theCountry, theLat, theLon, theName, theState = [], Mainloc = {};
   let Geoloc = function () {
     for (let prop in Mainloc) {
-      console.log(prop);
-      console.log(Mainloc[prop]);
+      // console.log(prop);
+      // console.log(Mainloc[prop]);
     };
   }
 
   fetch(Gurl)
     .then(function (resp) {
-      console.log(resp);
+      // console.log(resp);
       return resp.json();
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       theState = data.state;
       theName = data.name;
       theLon = data.lon;
@@ -106,7 +101,7 @@ function getApi() {
   var Wurl = `${Wurl}q=${search}&appid=${key}`;
   fetch(Wurl)
     .then(function (resp) {
-      console.log(resp);
+      // console.log(resp);
       return resp.json();
     })
     .then(function (data) {
@@ -129,60 +124,69 @@ console.log(d);
 
 
 //show weather data
-//   function showWeatherData(dataw) {
-//     let { temperature, humidity, pressure, UV_index, wind_speed } = dataw.current;
-
-//     // timezone.innerHTML = dataw.timezone;
-//     // country.innerHTML = dataw.lat + 'N ' + dataw.lon + 'E'
-
-//     currentweather.innerHTML =
-//       ` <div class="weather">
-//     <div>Temperature</div>
-//     <div>${temperature}</div>
-// </div>
-//     <div class="weather">
-//       <div>Humidity</div>
-//       <div>${humidity}%</div>
-//   </div>
-
-//   <div class="weather">
-//       <div>Wind Speed</div>
-//       <div>${wind_speed}</div>
-//   </div>
-//   <div class="weather">
-//       <div>UV index</div>
-//       <div>${UV_index}</div>
-//   </div> `;
-
-//     let otherDayForcast = ''
-//     data.daily.forEach((day, idx) => {
-//       if (idx == 0) {
-//         currentTemp.innerHTML = `
-//             <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather-icon" class="wicon">
-//             <div class="other">
-//                 <div class="day">${window.moment(day.dt * 1000).format('dddd')}</div>
-//                 <div class="temp">Night - ${day.temp.night}&#176;C</div>
-//                 <div class="temp">Day - ${day.temp.day}&#176;C</div>
-//             </div>
-
-//             `
-//       } else {
-//         otherDayForcast += `
-//             <div class="5dayforecast-item">
-//                 <div class="day">${window.moment(day.dt * 1000).format('ddd')}</div>
-//                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather-icon" class="wicon">
-//                 <div class="temp">Night - ${day.temp.night}&#176;C</div>
-//                 <div class="temp">Day - ${day.temp.day}&#176;C</div>
-//             </div>
-
-//             `
-//       }
-//     })
-//   }
-//   weather.innerHTML = otherDayForcast;
+const currentWeather = document.getElementById('currentweather');
+const weather = document.getElementById('weather');
+const currentTemp = document.getElementById('currenttemp');
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const country = document.getElementById('country');
 
 
-//   locButton.addEventListener('click', showWeatherData);
+function showWeatherData(dataw) {
+  let { temperature, humidity, wind_speed, UV_index } = dataw.current;
+
+  timezone.innerHTML = dataw.timezone;
+  country.innerHTML = dataw.lat + 'N ' + dataw.lon + 'E'
+
+  currentWeather.innerHTML =
+    ` <div class="weather">
+    <div>Temperature</div>
+    <div>${temperature}</div>
+</div>
+    <div class="weather">
+      <div>Humidity</div>
+      <div>${humidity}%</div>
+  </div>
+
+  <div class="weather">
+      <div>Wind Speed</div>
+      <div>${wind_speed}</div>
+  </div>
+  <div class="weather">
+      <div>UV index</div>
+      <div>${UV_index}</div>
+  </div> `;
+
+  let otherDayForcast = ''
+  data.daily.forEach((day, idx) => {
+    if (idx == 0) {
+      currentTemp.innerHTML = `
+            <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather-icon" class="wicon">
+            <div class="other">
+                <div class="day">${window.moment(day.dt * 1000).format('dddd')}</div>
+                <div class="temp">Night - ${day.temp.night}&#176;C</div>
+                <div class="temp">Day - ${day.temp.day}&#176;C</div>
+            </div>
+
+            `
+    } else {
+      otherDayForcast += `
+            <div class="5dayforecast-item">
+                <div class="day">${window.moment(day.dt * 1000).format('ddd')}</div>
+                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather-icon" class="wicon">
+                <div class="temp">Night - ${day.temp.night}&#176;C</div>
+                <div class="temp">Day - ${day.temp.day}&#176;C</div>
+            </div>
+
+            `
+
+    }
+  })
+}
+// weather.innerHTML = otherDayForecast;
+
+
+locButton.addEventListener('click', showWeatherData);
 fetchButton.addEventListener('click', getApi);
 
 
