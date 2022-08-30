@@ -8,44 +8,122 @@
   <title>Weatherman</title>
 </head>
 
+
+
+<header id="header" class="header">
+  <h1>Weather Dashboard</h1>
+</header>
+<div class="row" id="date"></div>
+<div id="country" class="country"></div>
+<aside>
+  <h2 class="row">Search for a city:</h2>
+  <form id="form">
+    <input type="text" placeholder="Ex: Mexico city" id="search" class="row">
+  </form>
+  <div><button class="btn" id="fetch-button">Search</button>
+    <h2>or use </h2>
+
+    <button class="btn" id="show">Your location</button>
+    <div id="message"></div>
+
+  </div>
+  <ul class="LGH" id="cities">
+    Mostfamous cities
+    <button id="city1"> </button>
+    <button id="city2"> </button>
+    <button id="city3"> </button>
+    <button id="city4"> </button>
+    <button id="city5"> </button>
+    <button id="city6"> </button>
+    <button id="city7"> </button>
+    <button id="city8"> </button>
+  </ul>
+</aside>
+
 <body>
-
-  <header id="header" class="header">
-    <h1>Weather Dashboard</h1>
-  </header>
-  <div class="row" id="date"></div>
-  <aside>
-    <h2 class="row">Search for a city:</h2>
-    <form id="form">
-      <input type="text" placeholder="Ex: Mexico city" id="search" class="row">
-    </form>
-    <div><button class="btn" id="fetch-button">Search</button>
-      <h2>or use </h2>
-
-      <button class="btn" id="show">Your location</button>
-      <div id="message"></div>
-
-    </div>
-    <ul class="LGH" id="cities">
-      Mostfamous cities
-      <button id="city1"> </button>
-      <button id="city2"> </button>
-      <button id="city3"> </button>
-      <button id="city4"> </button>
-      <button id="city5"> </button>
-      <button id="city6"> </button>
-      <button id="city7"> </button>
-      <button id="city8"> </button>
-    </ul>
-  </aside>
   <main id="main">
     <div id="date"></div>
-    <div class="weather">
-      <div class="weather-info"></div>
-    </div>
-    <div class="forecast">
-      5-Day Forecast:
-    </div>
+
+    <div class="weather-info" id="currentweather">
+      <div class="weather">
+        <div>City name</div>
+        <div>121</div>
+      </div>
+
+      <div class="weather-info" id="currentweather">
+        <div class="weather">
+          <div>Icon</div>
+          <div>121</div>
+        </div>
+
+        <div class="weather-info" id="currentweather">
+          <div class="weather">
+            <div>Temperature</div>
+            <div>121</div>
+          </div>
+
+          <div class="weather-info" id="currentweather">
+            <div class="weather">
+              <div>Humidity</div>
+              <div>90%</div>
+            </div>
+
+            <div class="weather-info" id="currentweather">
+              <div class="weather">
+                <div>Wind speed</div>
+                <div>121</div>
+              </div>
+
+
+              <div class="weather-info" id="currentweather">
+                <div class="weather">
+                  <div>UV index</div>
+                  <div>121</div>
+                </div>
+
+                <div class="forecast">
+                  <div class="Today" id="currenttemp">
+                    <img src="" alt="weather-icon" class="wicon">
+                    <div class="day">Monday</div>
+                    <div class="temp">Night -25.6&#176; C</div>
+                    <div class="temp">Day -35.6&#176; C</div>
+                  </div>
+
+                  <div class="5dayforecast" id="5day">
+                    <div class="5dayforecast-item">
+                      <div class="day">Monday</div>
+                      <img src="" alt="weather-icon" class="wicon">
+                      <div class="temp">Night -25.6&#176; C</div>
+                      <div class="temp">Day -35.6&#176; C</div>
+                    </div>
+
+                    <div class="5dayforecast-item">
+                      <div class="day">Tuesday</div>
+                      <img src="" alt="weather-icon" class="wicon">
+                      <div class="temp">Night -25.6&#176; C</div>
+                      <div class="temp">Day -35.6&#176; C</div>
+                    </div>
+
+                    <div class="5dayforecast-item">
+                      <div class="day">Wednesday</div>
+                      <img src="" alt="weather-icon" class="wicon">
+                      <div class="temp">Night -25.6&#176; C</div>
+                      <div class="temp">Day -35.6&#176; C</div>
+                    </div>
+
+                    <div class="5dayforecast-item">
+                      <div class="day">Thursday</div>
+                      <img src="" alt="weather-icon" class="wicon">
+                      <div class="temp">Night -25.6&#176; C</div>
+                      <div class="temp">Day -35.6&#176; C</div>
+                    </div>
+
+                    <div class="5dayforecast-item">
+                      <div class="day">Friday</div>
+                      <img src="" alt="weather-icon" class="wicon">
+                      <div class="temp">Night -25.6&#176; C</div>
+                      <div class="temp">Day -35.6&#176; C</div>
+                    </div>
   </main>
 
   <script src="./assets/script.js"></script>
