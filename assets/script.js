@@ -1,6 +1,6 @@
 var fetchButton = document.getElementById('fetch-button');
 var locButton = document.getElementById('show');
-
+//set your location from real location
 (() => {
   const message = document.querySelector('#message');
 
@@ -76,18 +76,18 @@ function getApi() {
   let theCountry, theLat, theLon, theName, theState = [], Mainloc = {};
   let Geoloc = function () {
     for (let prop in Mainloc) {
-      // console.log(prop);
-      // console.log(Mainloc[prop]);
+      console.log(prop);
+      console.log(Mainloc[prop]);
     };
   }
 
   fetch(Gurl)
     .then(function (resp) {
-      // console.log(resp);
+      console.log(resp);
       return resp.json();
     })
     .then(function (data) {
-      // console.log(data);
+      console.log(data);
       theState = data.state;
       theName = data.name;
       theLon = data.lon;
@@ -101,7 +101,7 @@ function getApi() {
   var Wurl = `${Wurl}q=${search}&appid=${key}`;
   fetch(Wurl)
     .then(function (resp) {
-      // console.log(resp);
+      console.log(resp);
       return resp.json();
     })
     .then(function (data) {
@@ -113,7 +113,7 @@ function getApi() {
 }
 //set search items on local storage
 localStorage.setItem(search, d);
-//set your location from real location
+
 
 
 //timeframe

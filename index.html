@@ -13,6 +13,7 @@
 <header id="header" class="header">
   <h1>Weather Dashboard</h1>
 </header>
+
 <div class="row" id="date"></div>
 <div id="country" class="country"></div>
 <aside>
@@ -42,92 +43,95 @@
 </aside>
 
 <body>
-  <main id="main">
-    <div id="date"></div>
 
-    <div class="weather-info" id="currentweather">
-      <div class="weather">
-        <div>City name</div>
-        <div>121</div>
-      </div>
-
-      <div class="weather-info" id="currentweather">
-        <div class="weather">
-          <div>Icon</div>
-          <div>121</div>
-        </div>
+  <div class="container">
+    <div class="weather-info">
+      <main id="main">
+        <div id="date"></div>
 
         <div class="weather-info" id="currentweather">
           <div class="weather">
-            <div>Temperature</div>
+            <div>City name</div>
             <div>121</div>
           </div>
 
           <div class="weather-info" id="currentweather">
             <div class="weather">
-              <div>Humidity</div>
-              <div>90%</div>
+              <div>Icon</div>
+              <div>121</div>
             </div>
 
             <div class="weather-info" id="currentweather">
               <div class="weather">
-                <div>Wind speed</div>
+                <div>Temperature</div>
                 <div>121</div>
               </div>
 
-
               <div class="weather-info" id="currentweather">
                 <div class="weather">
-                  <div>UV index</div>
-                  <div>121</div>
+                  <div>Humidity</div>
+                  <div>90%</div>
                 </div>
 
-                <div class="forecast">
-                  <div class="Today" id="currenttemp">
-                    <img src="" alt="weather-icon" class="wicon">
-                    <div class="day">Monday</div>
-                    <div class="temp">Night -25.6&#176; C</div>
-                    <div class="temp">Day -35.6&#176; C</div>
+                <div class="weather-info" id="currentweather">
+                  <div class="weather">
+                    <div>Wind speed</div>
+                    <div>121</div>
                   </div>
 
-                  <div class="5dayforecast" id="5day">
-                    <div class="5dayforecast-item">
-                      <div class="day">Monday</div>
-                      <img src="" alt="weather-icon" class="wicon">
-                      <div class="temp">Night -25.6&#176; C</div>
-                      <div class="temp">Day -35.6&#176; C</div>
+
+                  <div class="weather-info" id="currentweather">
+                    <div class="weather">
+                      <div>UV index</div>
+                      <div>121</div>
                     </div>
 
-                    <div class="5dayforecast-item">
-                      <div class="day">Tuesday</div>
-                      <img src="" alt="weather-icon" class="wicon">
-                      <div class="temp">Night -25.6&#176; C</div>
-                      <div class="temp">Day -35.6&#176; C</div>
-                    </div>
+                    <div class="future-forecast">
+                      <div class="Today" id="currenttemp">
+                        <img src="" alt="weather-icon" class="wicon">
+                        <div class="day">Monday</div>
+                        <div class="temp">Night -25.6&#176; C</div>
+                        <div class="temp">Day -35.6&#176; C</div>
+                      </div>
 
-                    <div class="5dayforecast-item">
-                      <div class="day">Wednesday</div>
-                      <img src="" alt="weather-icon" class="wicon">
-                      <div class="temp">Night -25.6&#176; C</div>
-                      <div class="temp">Day -35.6&#176; C</div>
-                    </div>
+                      <div class="weather-forecast" id="5day">
+                        <div class="weather-forecast-item">
+                          <div class="day">Monday</div>
+                          <img src="" alt="weather-icon" class="wicon">
+                          <div class="temp">Night -25.6&#176; C</div>
+                          <div class="temp">Day -35.6&#176; C</div>
+                        </div>
 
-                    <div class="5dayforecast-item">
-                      <div class="day">Thursday</div>
-                      <img src="" alt="weather-icon" class="wicon">
-                      <div class="temp">Night -25.6&#176; C</div>
-                      <div class="temp">Day -35.6&#176; C</div>
-                    </div>
+                        <div class="weather-forecast-item">
+                          <div class="day">Tuesday</div>
+                          <img src="" alt="weather-icon" class="wicon">
+                          <div class="temp">Night -25.6&#176; C</div>
+                          <div class="temp">Day -35.6&#176; C</div>
+                        </div>
 
-                    <div class="5dayforecast-item">
-                      <div class="day">Friday</div>
-                      <img src="" alt="weather-icon" class="wicon">
-                      <div class="temp">Night -25.6&#176; C</div>
-                      <div class="temp">Day -35.6&#176; C</div>
-                    </div>
-  </main>
+                        <div class="weather-forecast-item">
+                          <div class="day">Wednesday</div>
+                          <img src="" alt="weather-icon" class="wicon">
+                          <div class="temp">Night -25.6&#176; C</div>
+                          <div class="temp">Day -35.6&#176; C</div>
+                        </div>
 
-  <script src="./assets/script.js"></script>
+                        <div class="weather-forecast-item">
+                          <div class="day">Thursday</div>
+                          <img src="" alt="weather-icon" class="wicon">
+                          <div class="temp">Night -25.6&#176; C</div>
+                          <div class="temp">Day -35.6&#176; C</div>
+                        </div>
+
+                        <div class="weather-forecast-item">
+                          <div class="day">Friday</div>
+                          <img src="" alt="weather-icon" class="wicon">
+                          <div class="temp">Night -25.6&#176; C</div>
+                          <div class="temp">Day -35.6&#176; C</div>
+                        </div>
+      </main>
+
+      <script src="./assets/script.js"></script>
 </body>
 
 </html>
