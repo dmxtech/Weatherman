@@ -62,7 +62,7 @@ function getApi() {
   //API key
   var key = 'dd9f750d866c7ea7294e978112f158c0';
   //E
-  var requestUrl = `http://api.openweathermap.org/data/2.5/onecall?`;
+  var requestUrl = `https://api.openweathermap.org/data/3.0/onecall?`;
   var geourl = `http://api.openweathermap.org/geo/1.0/direct?`;
   var Wurl = `https://api.openweathermap.org/data/2.5/weather?`;
   var lang = 'en';
@@ -95,22 +95,25 @@ function getApi() {
       theCountry = data.country;
       Mainloc = data;
       Geoloc();
-    })
 
-  //WeatherApi call
-  var Wurl = `${Wurl}q=${search}&appid=${key}`;
-  fetch(Wurl)
-    .then(function (resp) {
-      console.log(resp);
-      return resp.json();
-    })
-    .then(function (data) {
-      var dataw = data;
-      console.log(dataw);
-    })
 
+      //WeatherApi call
+
+
+      var requestUrl = `${requestUrl}q=lat=${theLat}&lon=${theLon}&appid=${key}`;
+      fetch(requestUrl)
+        .then(function (resp) {
+          console.log(resp);
+          return resp.json();
+        })
+        .then(function (data) {
+          var dataw = data;
+          console.log(dataw);
+        })
+    })
     .catch(err => console.error(err));
 }
+
 //set search items on local storage
 localStorage.setItem(search, d);
 
@@ -158,7 +161,7 @@ function showWeatherData(dataw) {
   </div> `;
 
   let otherDayForcast = ''
-  data.daily.forEach((day, idx) => {
+  dataw.daily.forEach((day, idx) => {
     if (idx == 0) {
       currentTemp.innerHTML = `
             <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather-icon" class="wicon">
