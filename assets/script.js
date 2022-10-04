@@ -1,5 +1,5 @@
-var fetchButton = document.getElementById('fetch-button');
-var locButton = document.getElementById('show');
+const fetchButton = document.getElementById('fetch-button');
+const locButton = document.getElementById('show');
 //set your location from real location
 (() => {
   const message = document.querySelector('#message');
@@ -39,40 +39,40 @@ var locButton = document.getElementById('show');
 
 })();
 //Getting searched city from local storage
-var city1 = localStorage.key(0);
+const city1 = localStorage.key(0);
 document.getElementById("city1").innerHTML = city1
-var city2 = localStorage.key(1);
+const city2 = localStorage.key(1);
 document.getElementById("city2").innerHTML = city2
-var city3 = localStorage.key(2);
+const city3 = localStorage.key(2);
 document.getElementById("city3").innerHTML = city3
-var city4 = localStorage.key(3);
+const city4 = localStorage.key(3);
 document.getElementById("city4").innerHTML = city4
-var city5 = localStorage.key(4);
+const city5 = localStorage.key(4);
 document.getElementById("city5").innerHTML = city5
-var city6 = localStorage.key(5);
+const city6 = localStorage.key(5);
 document.getElementById("city6").innerHTML = city6
-var city7 = localStorage.key(6);
+const city7 = localStorage.key(6);
 document.getElementById("city7").innerHTML = city7
-var city8 = localStorage.key(7);
+const city8 = localStorage.key(7);
 document.getElementById("city8").innerHTML = city8
 
 //getapi function start
 function getApi() {
   //Declare variables for API
   //API key
-  var key = 'dd9f750d866c7ea7294e978112f158c0';
+  const key = 'dd9f750d866c7ea7294e978112f158c0';
   //E
-  var requestUrl = `https://api.openweathermap.org/data/3.0/onecall?`;
-  var geourl = `http://api.openweathermap.org/geo/1.0/direct?`;
-  var Wurl = `https://api.openweathermap.org/data/2.5/weather?`;
-  var lang = 'en';
-  var units = 'metric';
+
+  const geourl = `http://api.openweathermap.org/geo/1.0/direct?`;
+  const Wurl = `https://api.openweathermap.org/data/2.5/weather?`;
+  const lang = 'en';
+  const units = 'metric';
   //search text and function
-  var search = document.getElementById('search').value;
+  const search = document.getElementById('search').value;
   console.log(document.getElementById('search').value);
 
   //Geocoding API call
-  var Gurl = `${geourl}q=${search}&appid=${key}`;
+  const Gurl = `${geourl}q=${search}&appid=${key}`;
   let theCountry, theLat, theLon, theName, theState = [], Mainloc = {};
   let Geoloc = function () {
     for (let prop in Mainloc) {
@@ -83,7 +83,6 @@ function getApi() {
 
   fetch(Gurl)
     .then(function (resp) {
-      console.log(resp);
       return resp.json();
     })
     .then(function (data) {
@@ -91,23 +90,23 @@ function getApi() {
       theState = data.state;
       theName = data.name;
       theLon = data.lon;
-      theLat = data.lat;
+      theLat = `${lat}`;
       theCountry = data.country;
       Mainloc = data;
       Geoloc();
-
+      console.log(theLon);
 
       //WeatherApi call
 
-
-      var requestUrl = `${requestUrl}q=lat=${theLat}&lon=${theLon}&appid=${key}`;
+      const reqUrl = `https://api.openweathermap.org/data/3.0/onecall?`;
+      const requestUrl = `${reqUrl}q=lat=${theLat}&lon=${theLon}&appid=${key}`;
       fetch(requestUrl)
         .then(function (resp) {
           console.log(resp);
           return resp.json();
         })
         .then(function (data) {
-          var dataw = data;
+          const dataw = data;
           console.log(dataw);
         })
     })
@@ -120,7 +119,7 @@ localStorage.setItem(search, d);
 
 
 //timeframe
-var d = new Date();
+const d = new Date();
 let date = d.getDay();
 document.getElementById("date").innerHTML = d;
 console.log(d);
