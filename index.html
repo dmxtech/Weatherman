@@ -22,7 +22,7 @@
     <input type="text" placeholder="Ex: Mexico city" id="search" class="row">
   </form>
   <div>
-    <button class="btn" id="fetch-button">Search</button>
+    <button class="btn" id="search-button">Search</button>
     <h2>or use </h2>
 
     <button class="btn" id="show">Your location</button>
@@ -85,7 +85,6 @@
                       <div>UV index</div>
                       <div>121</div>
                     </div>
-
                     <div class="future-forecast">
                       <div class="Today" id="currenttemp">
                         <img src="" alt="weather-icon" class="wicon">
@@ -130,13 +129,47 @@
                           <div class="temp">Night -25.6&#176; C</div>
                           <div class="temp">Day -35.6&#176; C</div>
                         </div>
-
+                        <div></div>
                         <div class="weather-forecast-item">
                           <div class="day">Saturday</div>
                           <img src="" alt="weather-icon" class="wicon">
                           <div class="temp">Night -25.6&#176; C</div>
                           <div class="temp">Day -35.6&#176; C</div>
                         </div>
+                        <div class="weather">
+                          <div>Temperature</div>
+                          <div>${temperature}</div>
+                        </div>
+                        <div class="weather">
+                          <div>Humidity</div>
+                          <div>${humidity}%</div>
+                        </div>
+
+                        <div class="weather">
+                          <div>Wind Speed</div>
+                          <div>${wind_speed}</div>
+                        </div>
+                        <div class="weather">
+                          <div>UV index</div>
+                          <div>${UV_index}</div>
+                        </div>
+
+
+                        <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather-icon"
+                          class="wicon">
+                        <div class="other">
+                          <div class="day">${window.moment(day.dt * 1000).format('dddd')}</div>
+                          <div class="temp">Night - ${day.temp.night}&#176;C</div>
+                          <div class="temp">Day - ${day.temp.day}&#176;C</div>
+                        </div>
+
+                        <div class="5dayforecast-item">
+                          <div class="day">${window.moment(day.dt * 1000).format('ddd')}</div>
+                          <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather-icon"
+                            class="wicon">
+                          <div class="temp">Night - ${day.temp.night}&#176;C</div>
+                          <div class="temp">Day - ${day.temp.day}&#176;C</div>
+                        </div>-->
       </main>
       <script src="./assets/script.js"></script>
 </body>
