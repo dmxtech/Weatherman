@@ -2,10 +2,10 @@
 Html, Css & Javascript development
 
 
-# Personal schedulle for daily tasks.  
+# WEATHERMAN.  
 
 # Description
-I created responsive time-boxes which can help users to create a personal schedulle for their activities.
+I created responsive website that connects with openweather API .
 # Table of contents
 > Assets 
      > assets
@@ -19,11 +19,6 @@ https://github.com/dmxtech/Weatherman
 
 https://dmxtech.github.io/Weatherman/
 
-# screenshot link
-## Mock-Up
-https://snipboard.io/ZW28Kw.jpg
-
-assets\Coding Quiz.gif
 
 
-find object 0 and loc 
+
