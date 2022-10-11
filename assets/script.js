@@ -8,7 +8,7 @@ var searchButton = document.getElementById('search-button');
 var locButton = document.getElementById('show');
 //set your location from real location
 (() => {
-  const message = document.querySelector('message');
+  const message = document.querySelector('#message');
 
   // check if the Geolocation API is supported
   if (!navigator.geolocation) {
@@ -34,7 +34,7 @@ var locButton = document.getElementById('show');
 
     message.classList.add('success');
     message.textContent = `Your location: (${latitude},${longitude})`;
-    localStorage.setItem(position, d);
+    // localStorage.setItem(position, d);
   }
 
   // handle error case
@@ -75,7 +75,7 @@ function getApi() {
   var geourl = `https://api.openweathermap.org/geo/1.0/direct?`;
   //search text and function
   var search = document.getElementById('search').value;
-  console.log(document.getElementById('search').value);
+  console.log(search);
 
   //Geocoding API call
   var Gurl = `${geourl}q=${search}&appid=${key}`;
@@ -91,7 +91,7 @@ function getApi() {
       let lon = data[0].lon;
       let lat = data[0].lat;
       console.log(lon);
-      theCountry = data[0].country;
+      thename = data[0].name;
       Mainloc = data;
       getforecast(lat, lon);
     });
@@ -107,7 +107,7 @@ function getforecast(lat, lon) {
     .then(function (data) {
       console.log(data);
       console.log(data.list);
-      let wind = data.list[0].weather;
+      let wind = data.list[0].wind;
       console.log(wind);
       let fetchlist = data.list;
       let weatherlist = [];
@@ -115,6 +115,75 @@ function getforecast(lat, lon) {
         weatherlist.push(fetchlist[i]);
       }
       console.log(weatherlist);
+      let maintemp = data.list[0].main.temp;
+      console.log(maintemp);
+      let day = data.list[0].dt_txt;
+      let icon = `http://openweathermap.org/img/wn/${data.list[0].weather.icon}@2x.png`;
+      console.log(icon);
+      let humidity = data.list[0].main.humidity;
+      let windspeed = data.list[0].wind.speed;
+      document.getElementById("cityname").innerHTML = "City name: " + thename;
+      document.getElementById("day").innerHTML = "Today is: " + day;
+      document.getElementById("wicon").innerHTML = icon;
+      document.getElementById("temp").innerHTML = "Temperature: " + (maintemp - 273) + "℃";
+      document.getElementById("humidity").innerHTML = "Humidity: " + humidity + "%";
+      document.getElementById("wind").innerHTML = "Windspeed: " + windspeed + "MPH";
+
+      let day5 = weatherlist[0].dt_txt;
+      let maintemp5 = weatherlist[0].main.temp;
+      let humidity5 = weatherlist[0].main.humidity;
+      let windspeed5 = weatherlist[0].wind.speed;
+      // let icon5 = `http://openweathermap.org/img/wn/${data.list[0].weather.icon}@2x.png`;
+      document.getElementById("day5").innerHTML = "1-Day: " + day5;
+      // document.getElementById("wicon5").innerHTML = icon5;
+      document.getElementById("temp5").innerHTML = "Temperature: " + (maintemp5 - 273) + "℃";
+      document.getElementById("humidity5").innerHTML = "Humidity: " + humidity5 + "%";
+      document.getElementById("wind5").innerHTML = "Windspeed: " + windspeed5 + "MPH";
+
+
+      let day4 = weatherlist[1].dt_txt;
+      let maintemp4 = weatherlist[1].main.temp;
+      let humidity4 = weatherlist[1].main.humidity;
+      let windspeed4 = weatherlist[1].wind.speed;
+      // let icon5 = `http://openweathermap.org/img/wn/${data.list[0].weather.icon}@2x.png`;
+      document.getElementById("day4").innerHTML = "2-Day: " + day4;
+      // document.getElementById("wicon5").innerHTML = icon5;
+      document.getElementById("temp4").innerHTML = "Temperature: " + (maintemp4 - 273) + "℃";
+      document.getElementById("humidity4").innerHTML = "Humidity: " + humidity4 + "%";
+      document.getElementById("wind4").innerHTML = "Windspeed: " + windspeed4 + "MPH";
+
+      let day3 = weatherlist[2].dt_txt;
+      let maintemp3 = weatherlist[2].main.temp;
+      let humidity3 = weatherlist[2].main.humidity;
+      let windspeed3 = weatherlist[2].wind.speed;
+      // let icon5 = `http://openweathermap.org/img/wn/${data.list[0].weather.icon}@2x.png`;
+      document.getElementById("day3").innerHTML = "3-Day: " + day3;
+      // document.getElementById("wicon5").innerHTML = icon5;
+      document.getElementById("temp3").innerHTML = "Temperature: " + (maintemp3 - 273) + "℃";
+      document.getElementById("humidity3").innerHTML = "Humidity: " + humidity3 + "%";
+      document.getElementById("wind3").innerHTML = "Windspeed: " + windspeed3 + "MPH";
+
+      let day2 = weatherlist[3].dt_txt;
+      let maintemp2 = weatherlist[3].main.temp;
+      let humidity2 = weatherlist[3].main.humidity;
+      let windspeed2 = weatherlist[3].wind.speed;
+      // let icon5 = `http://openweathermap.org/img/wn/${data.list[0].weather.icon}@2x.png`;
+      document.getElementById("day2").innerHTML = "4-Day: " + day2;
+      // document.getElementById("wicon5").innerHTML = icon5;
+      document.getElementById("temp2").innerHTML = "Temperature: " + (maintemp2 - 273) + "℃";
+      document.getElementById("humidity2").innerHTML = "Humidity: " + humidity2 + "%";
+      document.getElementById("wind2").innerHTML = "Windspeed: " + windspeed2 + "MPH";
+
+      let day1 = weatherlist[1].dt_txt;
+      let maintemp1 = weatherlist[1].main.temp;
+      let humidity1 = weatherlist[1].main.humidity;
+      let windspeed1 = weatherlist[1].wind.speed;
+      // let icon5 = `http://openweathermap.org/img/wn/${data.list[0].weather.icon}@2x.png`;
+      document.getElementById("day1").innerHTML = "5-Day: " + day1;
+      // document.getElementById("wicon5").innerHTML = icon5;
+      document.getElementById("temp1").innerHTML = "Temperature: " + (maintemp1 - 273) + "℃";
+      document.getElementById("humidity1").innerHTML = "Humidity: " + humidity1 + "%";
+      document.getElementById("wind1").innerHTML = "Windspeed: " + windspeed1 + "MPH";
     })
 }
 

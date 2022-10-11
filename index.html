@@ -39,139 +39,100 @@
     <button id="city6"> </button>
     <button id="city7"> </button>
     <button id="city8"> </button>
+
+
+    <div id="cityname">City name:</div>
+    <img src="" alt="weather-icon" id="wicon">
+    <div id="day">Today is:</div>
+    <div id="temp">Temperature:</div>
+    <div id="humidity">Humidity: </div>
+    <div id="wind">Windspeed: </div>
+
   </ul>
+
 </aside>
 
 <body>
+  <main class="container" id="main">
+    <div class="future-forecast">
 
-  <div class="container">
-    <div class="weather-info">
-      <main id="main">
-        <div id="date"></div>
 
-        <div class="weather-info" id="currentweather">
-          <div class="weather">
-            <div>City name</div>
-            <div>121</div>
-          </div>
 
-          <div class="weather-info" id="currentweather">
+      <div class="weather-forecast" id="5day">
+        <div class="weather-forecast-item">
+          <img src="" alt="weather-icon" class="wicon">
+          <div id="day5" class="day">1-Day:</div>
+          <div id="temp5" class="temp">Temperature:</div>
+          <div id="humidity5">Humidity: </div>
+          <div id="wind5">Windspeed: </div>
+        </div>
+
+        <div class="weather-forecast-item" id="5day">
+          <img src="" alt="weather-icon" class="wicon">
+          <div id="day4" class="day">2-Day:</div>
+          <div id="temp4" class="temp">Temperature:</div>
+          <div id="humidity4">Humidity: </div>
+          <div id="wind4">Windspeed: </div>
+        </div>
+
+        <div class="weather-forecast-item" id="5day">
+          <img src="" alt="weather-icon" class="wicon">
+          <div id="day3" class="day">3-Day:</div>
+          <div id="temp3" class="temp">Temperature:</div>
+          <div id="humidity3">Humidity: </div>
+          <div id="wind3">Windspeed: </div>
+        </div>
+        <div class="weather-forecast-item" id="5day">
+          <img src="" alt="weather-icon" class="wicon">
+          <div id="day2" class="day">4-Day:</div>
+          <div id="temp2" class="temp">Temperature:</div>
+          <div id="humidity2">Humidity: </div>
+          <div id="wind2">Windspeed: </div>
+        </div>
+
+        <div class="weather-forecast-item" id="5day">
+          <img src="" alt="weather-icon" class="wicon">
+          <div id="day1" class="day">5-Day:</div>
+          <div id="temp1" class="temp">Temperature:</div>
+          <div id="humidity1">Humidity: </div>
+          <div id="wind1">Windspeed: </div>
+        </div>
+      </div>
+      <!--<div class="weather">
+              <div>Temperature</div>
+              <div>${temperature}</div>
+            </div>
             <div class="weather">
-              <div>Icon</div>
-              <div>121</div>
+              <div>Humidity</div>
+              <div>${humidity}%</div>
             </div>
 
-            <div class="weather-info" id="currentweather">
-              <div class="weather">
-                <div>Temperature</div>
-                <div>121</div>
-              </div>
-
-              <div class="weather-info" id="currentweather">
-                <div class="weather">
-                  <div>Humidity</div>
-                  <div>90%</div>
-                </div>
-
-                <div class="weather-info" id="currentweather">
-                  <div class="weather">
-                    <div>Wind speed</div>
-                    <div>121</div>
-                  </div>
+            <div class="weather">
+              <div>Wind Speed</div>
+              <div>${wind_speed}</div>
+            </div>
+            <div class="weather">
+              <div>UV index</div>
+              <div>${UV_index}</div>
+            </div>
 
 
-                  <div class="weather-info" id="currentweather">
-                    <div class="weather">
-                      <div>UV index</div>
-                      <div>121</div>
-                    </div>
-                    <div class="future-forecast">
-                      <div class="Today" id="currenttemp">
-                        <img src="" alt="weather-icon" class="wicon">
-                        <div class="day">Today</div>
-                        <div class="temp">Night -25.6&#176; C</div>
-                        <div class="temp">Day -35.6&#176; C</div>
-                      </div>
+            <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather-icon" class="wicon">
+            <div class="other">
+              <div class="day">${window.moment(day.dt * 1000).format('dddd')}</div>
+              <div class="temp">Night - ${day.temp.night}&#176;C</div>
+              <div class="temp">Day - ${day.temp.day}&#176;C</div>
+            </div>
 
-                      <div class="weather-forecast" id="5day">
-
-                        <div class="weather-forecast-item">
-                          <div class="day">Monday</div>
-                          <img src="" alt="weather-icon" class="wicon">
-                          <div class="temp">Night -25.6&#176; C</div>
-                          <div class="temp">Day -35.6&#176; C</div>
-                        </div>
-
-                        <div class="weather-forecast-item">
-                          <div class="day">Tuesday</div>
-                          <img src="" alt="weather-icon" class="wicon">
-                          <div class="temp">Night -25.6&#176; C</div>
-                          <div class="temp">Day -35.6&#176; C</div>
-                        </div>
-
-                        <div class="weather-forecast-item">
-                          <div class="day">Wednesday</div>
-                          <img src="" alt="weather-icon" class="wicon">
-                          <div class="temp">Night -25.6&#176; C</div>
-                          <div class="temp">Day -35.6&#176; C</div>
-                        </div>
-
-                        <div class="weather-forecast-item">
-                          <div class="day">Thursday</div>
-                          <img src="" alt="weather-icon" class="wicon">
-                          <div class="temp">Night -25.6&#176; C</div>
-                          <div class="temp">Day -35.6&#176; C</div>
-                        </div>
-
-                        <div class="weather-forecast-item">
-                          <div class="day">Friday</div>
-                          <img src="" alt="weather-icon" class="wicon">
-                          <div class="temp">Night -25.6&#176; C</div>
-                          <div class="temp">Day -35.6&#176; C</div>
-                        </div>
-                        <div></div>
-                        <div class="weather-forecast-item">
-                          <div class="day">Saturday</div>
-                          <img src="" alt="weather-icon" class="wicon">
-                          <div class="temp">Night -25.6&#176; C</div>
-                          <div class="temp">Day -35.6&#176; C</div>
-                        </div>
-                        <div class="weather">
-                          <div>Temperature</div>
-                          <div>${temperature}</div>
-                        </div>
-                        <div class="weather">
-                          <div>Humidity</div>
-                          <div>${humidity}%</div>
-                        </div>
-
-                        <div class="weather">
-                          <div>Wind Speed</div>
-                          <div>${wind_speed}</div>
-                        </div>
-                        <div class="weather">
-                          <div>UV index</div>
-                          <div>${UV_index}</div>
-                        </div>
-
-
-                        <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather-icon"
-                          class="wicon">
-                        <div class="other">
-                          <div class="day">${window.moment(day.dt * 1000).format('dddd')}</div>
-                          <div class="temp">Night - ${day.temp.night}&#176;C</div>
-                          <div class="temp">Day - ${day.temp.day}&#176;C</div>
-                        </div>
-
-                        <div class="5dayforecast-item">
-                          <div class="day">${window.moment(day.dt * 1000).format('ddd')}</div>
-                          <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather-icon"
-                            class="wicon">
-                          <div class="temp">Night - ${day.temp.night}&#176;C</div>
-                          <div class="temp">Day - ${day.temp.day}&#176;C</div>
-                        </div>-->
-      </main>
-      <script src="./assets/script.js"></script>
+            <div class="5dayforecast-item">
+              <div class="day">${window.moment(day.dt * 1000).format('ddd')}</div>
+              <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather-icon"
+                class="wicon">
+              <div class="temp">Night - ${day.temp.night}&#176;C</div>
+              <div class="temp">Day - ${day.temp.day}&#176;C</div>
+            </div>-->
+  </main>
+  <script src="./assets/script.js"></script>
 </body>
 
 </html>
