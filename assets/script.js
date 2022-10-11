@@ -45,8 +45,7 @@ var locButton = document.getElementById('show');
   }
 
 })();
-//set search items on local storage
-localStorage.setItem(search, d);
+
 
 
 
@@ -79,7 +78,8 @@ function getApi() {
   //search text and function
   var search = document.getElementById('search').value;
   console.log(search);
-
+  //set search items on local storage
+  localStorage.setItem(search, d);
   //Geocoding API call
   var Gurl = `${geourl}q=${search}&appid=${key}`;
 
