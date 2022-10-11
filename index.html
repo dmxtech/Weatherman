@@ -29,27 +29,28 @@
     <div id="message"></div>
 
   </div>
-  <ul class="LGH" id="cities">
-    Mostfamous cities
-    <button id="city1"> </button>
-    <button id="city2"> </button>
-    <button id="city3"> </button>
-    <button id="city4"> </button>
-    <button id="city5"> </button>
-    <button id="city6"> </button>
-    <button id="city7"> </button>
-    <button id="city8"> </button>
+  <div>
+    <ul class="LGH" id="cities">
+      Mostfamous cities
+      <button id="city1"> </button>
+      <button id="city2"> </button>
+      <button id="city3"> </button>
+      <button id="city4"> </button>
+      <button id="city5"> </button>
+      <button id="city6"> </button>
+      <button id="city7"> </button>
+      <button id="city8"> </button>
 
 
-    <div id="cityname">City name:</div>
-    <img src="" alt="weather-icon" id="wicon">
-    <div id="day">Today is:</div>
-    <div id="temp">Temperature:</div>
-    <div id="humidity">Humidity: </div>
-    <div id="wind">Windspeed: </div>
+      <h2 id="cityname">City name:</h2>
+      <img id="wicon" src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon">
+      <div id="day">Today is:</div>
+      <div id="temp">Temperature:</div>
+      <div id="humidity">Humidity: </div>
+      <div id="wind">Windspeed: </div>
 
-  </ul>
-
+    </ul>
+  </div>
 </aside>
 
 <body>
@@ -60,7 +61,7 @@
 
       <div class="weather-forecast" id="5day">
         <div class="weather-forecast-item">
-          <img src="" alt="weather-icon" class="wicon">
+          <img id="wicon5" src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon" class="wicon">
           <div id="day5" class="day">1-Day:</div>
           <div id="temp5" class="temp">Temperature:</div>
           <div id="humidity5">Humidity: </div>
@@ -68,7 +69,7 @@
         </div>
 
         <div class="weather-forecast-item" id="5day">
-          <img src="" alt="weather-icon" class="wicon">
+          <img id="wicon4" src="http://openweathermap.org/img/wn/11n@2x.png" alt="weather-icon" class="wicon">
           <div id="day4" class="day">2-Day:</div>
           <div id="temp4" class="temp">Temperature:</div>
           <div id="humidity4">Humidity: </div>
@@ -76,20 +77,21 @@
         </div>
 
         <div class="weather-forecast-item" id="5day">
-          <img src="" alt="weather-icon" class="wicon">
+          <img id="wicon3" src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather-icon" class="wicon">
           <div id="day3" class="day">3-Day:</div>
           <div id="temp3" class="temp">Temperature:</div>
           <div id="humidity3">Humidity: </div>
           <div id="wind3">Windspeed: </div>
         </div>
         <div class="weather-forecast-item" id="5day">
-          <img src="" alt="weather-icon" class="wicon">
+          <img id="wicon2" src="http://openweathermap.org/img/wn/02d@2x.png" alt="weather-icon" class="wicon">
           <div id="day2" class="day">4-Day:</div>
           <div id="temp2" class="temp">Temperature:</div>
           <div id="humidity2">Humidity: </div>
           <div id="wind2">Windspeed: </div>
         </div>
-
+      </div>
+      <!--
         <div class="weather-forecast-item" id="5day">
           <img src="" alt="weather-icon" class="wicon">
           <div id="day1" class="day">5-Day:</div>
@@ -97,8 +99,7 @@
           <div id="humidity1">Humidity: </div>
           <div id="wind1">Windspeed: </div>
         </div>
-      </div>
-      <!--<div class="weather">
+        <div class="weather">
               <div>Temperature</div>
               <div>${temperature}</div>
             </div>
