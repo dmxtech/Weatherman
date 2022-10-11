@@ -52,22 +52,52 @@ var locButton = document.getElementById('show');
 // Getting searched city from local storage
 var city1 = localStorage.key(0);
 document.getElementById("city1").innerHTML = city1
+document.getElementById("city1").onclick = function () {
+  document.getElementById("search").value = city1;
+};
 // city1.addEventListener('click'(city1.value = searchinput);
-var city2 = localStorage.key(1);
 
+var city2 = localStorage.key(1);
 document.getElementById("city2").innerHTML = city2
+document.getElementById("city2").onclick = function () {
+  document.getElementById("search").value = city2;
+};
+
 var city3 = localStorage.key(2);
 document.getElementById("city3").innerHTML = city3
+document.getElementById("city3").onclick = function () {
+  document.getElementById("search").value = city3;
+};
+
 var city4 = localStorage.key(3);
 document.getElementById("city4").innerHTML = city4
+document.getElementById("city4").onclick = function () {
+  document.getElementById("search").value = city4;
+};
+
 var city5 = localStorage.key(4);
 document.getElementById("city5").innerHTML = city5
+document.getElementById("city5").onclick = function () {
+  document.getElementById("search").value = city5;
+};
+
 var city6 = localStorage.key(5);
 document.getElementById("city6").innerHTML = city6
+document.getElementById("city6").onclick = function () {
+  document.getElementById("search").value = city6;
+};
+
 var city7 = localStorage.key(6);
 document.getElementById("city7").innerHTML = city7
+document.getElementById("city7").onclick = function () {
+  document.getElementById("search").value = city7;
+};
+
 var city8 = localStorage.key(7);
 document.getElementById("city8").innerHTML = city8
+document.getElementById("city8").onclick = function () {
+  document.getElementById("search").value = city8;
+};
 
 //getapi function start
 function getApi() {
@@ -78,9 +108,19 @@ function getApi() {
   //search text and function
   var search = document.getElementById('search').value;
   console.log(search);
+  // search.addEventListener("keypress", function (event) {
+  //   if (event.key === "Enter") {
+  //   }
+  // });
+
+
+
   //set search items on local storage
   localStorage.setItem(search, d);
+
   //Geocoding API call
+
+
   var Gurl = `${geourl}q=${search}&appid=${key}`;
 
   fetch(Gurl)
